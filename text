@@ -16,3 +16,9 @@ sudo nano /etc/telegraf/telegraf.conf
 # Khởi động Telegraf
 sudo systemctl start telegraf
 sudo systemctl enable telegraf
+
+
+
+
+sudo systemctl restart telegraf
+sudo tail -f /var/log/telegraf/telegraf.log
