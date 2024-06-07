@@ -22,3 +22,85 @@ sudo systemctl enable telegraf
 
 sudo systemctl restart telegraf
 sudo tail -f /var/log/telegraf/telegraf.log
+--------------------------------------------------------------------------------------------------
+Để triển khai TIG Stack (Telegraf, InfluxDB, Grafana) thu thập dữ liệu từ nhiều máy con (ảo), bạn có thể làm theo các bước dưới đây:
+
+1. Cài đặt InfluxDB
+Đầu tiên, bạn cần cài đặt InfluxDB trên máy chủ (server) chính. Đây sẽ là nơi lưu trữ dữ liệu thu thập được từ các máy con.
+
+sh
+Copy code
+# Update hệ thống
+sudo apt-get update
+
+# Cài đặt InfluxDB
+wget -qO- https://repos.influxdata.com/influxdb.key | sudo apt-key add -
+source /etc/lsb-release
+echo "deb https://repos.influxdata.com/ubuntu $DISTRIB_CODENAME stable" | sudo tee /etc/apt/sources.list.d/influxdb.list
+sudo apt-get update
+sudo apt-get install influxdb
+
+# Khởi động InfluxDB
+sudo systemctl start influxdb
+sudo systemctl enable influxdb
+2. Cài đặt Grafana
+Grafana sẽ được sử dụng để trực quan hóa dữ liệu được lưu trữ trong InfluxDB.
+
+sh
+Copy code
+# Cài đặt các yêu cầu phụ thuộc
+sudo apt-get install -y software-properties-common
+
+# Thêm repo của Grafana
+sudo add-apt-repository "deb https://packages.grafana.com/oss/deb stable main"
+wget -q -O - https://packages.grafana.com/gpg.key | sudo apt-key add -
+
+# Cài đặt Grafana
+sudo apt-get update
+sudo apt-get install grafana
+
+# Khởi động Grafana
+sudo systemctl start grafana-server
+sudo systemctl enable grafana-server
+3. Cài đặt Telegraf trên các máy con
+Telegraf sẽ thu thập dữ liệu từ các máy con và gửi về InfluxDB.
+
+Trên mỗi máy con:
+sh
+Copy code
+# Cài đặt Telegraf
+wget -qO- https://repos.influxdata.com/influxdb.key | sudo apt-key add -
+source /etc/lsb-release
+echo "deb https://repos.influxdata.com/ubuntu $DISTRIB_CODENAME stable" | sudo tee /etc/apt/sources.list.d/influxdb.list
+sudo apt-get update
+sudo apt-get install telegraf
+
+# Cấu hình Telegraf
+sudo nano /etc/telegraf/telegraf.conf
+
+# Trong file cấu hình, tìm và chỉnh sửa các dòng sau để chỉ định máy chủ InfluxDB của bạn
+[[outputs.influxdb]]
+  urls = ["http://<IP của máy chủ InfluxDB>:8086"]
+  database = "telegraf"
+
+# Khởi động Telegraf
+sudo systemctl start telegraf
+sudo systemctl enable telegraf
+4. Cấu hình InfluxDB để nhận dữ liệu từ Telegraf
+Trên máy chủ chính, bạn cần tạo database để lưu trữ dữ liệu từ Telegraf.
+
+sh
+Copy code
+# Kết nối vào InfluxDB
+influx
+
+# Tạo database telegraf
+CREATE DATABASE telegraf
+5. Cấu hình Grafana để kết nối với InfluxDB
+Mở trình duyệt và truy cập vào Grafana (thường là http://<IP của máy chủ Grafana>:3000).
+
+Đăng nhập vào Grafana (mặc định user: admin, pass: admin).
+Thêm InfluxDB làm data source:
+Vào Configuration > Data Sources > Add data source.
+Chọn InfluxDB.
+Điền các thông tin cần thiết, như URL, Database, User, Password (URL thường là http://<IP của máy chủ InfluxDB>:8086).
