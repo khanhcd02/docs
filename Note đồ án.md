@@ -21,6 +21,9 @@ Cấu trúc microservice:
 + Quản lý khóa học: Phê duyệt khóa học mới.
 + Báo cáo & thống kê: Doanh thu, số lượng học viên, đánh giá khóa học.
 
+- yếu tố chống copy: sử dụng css,javascript để vô hiệu hóa chuột phải, 1 số phím tắt và select văn bản 
+
+
 Note chống copy:
 - css,script chặn nút s,u,p,c,...,chặn chuột phải,f12,...
 - không được tắt "javascript" khi mở bài giảng
