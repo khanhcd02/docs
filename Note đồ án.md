@@ -69,3 +69,9 @@ Dữ liệu cập nhật:
 
 Nếu khóa học được duyệt: Trạng thái của khóa học trong bảng Courses sẽ chuyển thành Active (is_active = true) và cập nhật thời gian duyệt vào trường updated_at.
 Nếu khóa học bị từ chối: Khóa học sẽ quay lại trạng thái Draft hoặc Rejected, và người dạy có thể chỉnh sửa nội dung dựa trên nhận xét của quản trị viên.
+
+
+chống copy:
+- vô hiệu hóa nút và menu
+- chèn 1 thẻ div lên trên video để người dùng phải tương tác trên thẻ div => hạn chế thao tác trực tiếp trên video
+- sử dụng Device Fingerprint: chỉ số Browser Plugins xem Các plugin trình duyệt đã cài đặt. viết 1 list các extendsion chống an-ti copy để check kết quả với Browser Plugins 
