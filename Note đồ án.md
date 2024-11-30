@@ -74,4 +74,6 @@ Nếu khóa học bị từ chối: Khóa học sẽ quay lại trạng thái Dr
 chống copy:
 - vô hiệu hóa nút và menu
 - chèn 1 thẻ div lên trên video để người dùng phải tương tác trên thẻ div => hạn chế thao tác trực tiếp trên video
-- sử dụng Device Fingerprint: chỉ số Browser Plugins xem Các plugin trình duyệt đã cài đặt. viết 1 list các extendsion chống an-ti copy để check kết quả với Browser Plugins 
+- sử dụng Device Fingerprint: chỉ số Browser Plugins xem Các plugin trình duyệt đã cài đặt. viết 1 list các extendsion chống an-ti copy để check kết quả với Browser Plugins
+
+- nếu không thể xử lý được video thủ công, có thể tách riêng bài viết và video thành 2 cột để video ở phía dưới bài viết, sẽ dễ xử lý hơn
