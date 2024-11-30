@@ -59,7 +59,7 @@ Dữ liệu cập nhật:
 Trạng thái của khóa học sẽ chuyển thành Pending trong bảng Courses (is_active = false và pending_review = true), cho phép quản trị viên thấy rằng có một khóa học mới chờ xét duyệt.
 5. Bước 5: Quản trị viên xét duyệt khóa học
 Mục tiêu: Quản trị viên sẽ kiểm tra và đánh giá nội dung khóa học.
-
+6. xử lý vấn đề cập nhật chỉnh sửa khóa học: chỉ có thể sửa khi đang ở chế độ draft, 1 khi đã được duyệt thì không được phép sửa nữa
 Quá trình duyệt:
 
 Quản trị viên xem nội dung bài giảng, kiểm tra tài liệu có phù hợp không.
