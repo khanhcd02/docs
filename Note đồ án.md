@@ -81,5 +81,5 @@ chống copy:
 - sử dụng Device Fingerprint: chỉ số Browser Plugins xem Các plugin trình duyệt đã cài đặt. viết 1 list các extendsion chống an-ti copy để check kết quả với Browser Plugins
 
 - nếu không thể xử lý được video thủ công, có thể tách riêng bài viết và video thành 2 cột để video ở phía dưới bài viết, sẽ dễ xử lý hơn
-
+- nếu không thể xử lý video bằng script, thì xử lý ngay từ lúc trước khi lưu vào db
 - sử dụng cookie đếm số lần vi phạm, trong vòng 5p nhập sai quá số lần thì tạm khóa hoặc chặn, tiếp tục trong 10p vi phạm quá nhiều lần thì gửi ip lên n8n, n8n xử lý để đưa vào ip blacklist
