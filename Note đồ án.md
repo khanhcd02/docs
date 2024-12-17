@@ -73,7 +73,7 @@ Dữ liệu cập nhật:
 
 Nếu khóa học được duyệt: Trạng thái của khóa học trong bảng Courses sẽ chuyển thành Active (is_active = true) và cập nhật thời gian duyệt vào trường updated_at.
 Nếu khóa học bị từ chối: Khóa học sẽ quay lại trạng thái Draft hoặc Rejected, và người dạy có thể chỉnh sửa nội dung dựa trên nhận xét của quản trị viên.
-
+refresh token: có thể lưu dùng thêm thông tin thiết bị và ip để tạo refreshtoken và lưu vào db, khi gửi accesstoken hết hạn sẽ lấy refreshtoken từ db để giải mã và kiểm tra thông tin thiết bị, ip xem có đúng là accesstoken được gưi từ máy mà server cấp không hay chỉ là máy khác lấy được accesstoken và gán vào cookie để mạo danh
 - dùng CSP thêm vào header chống XSS
 chống copy:
 - vô hiệu hóa nút và menu
