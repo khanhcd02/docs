@@ -79,6 +79,8 @@ chống copy:
 - vô hiệu hóa nút và menu
 - chèn 1 thẻ div lên trên video để người dùng phải tương tác trên thẻ div => hạn chế thao tác trực tiếp trên video
 - sử dụng Device Fingerprint: chỉ số Browser Plugins xem Các plugin trình duyệt đã cài đặt. viết 1 list các extendsion chống an-ti copy để check kết quả với Browser Plugins
+- user agent
+- sử dụng JavaScript Obfuscator Tool làm rối mã script. tải nội dung lesson bằng ajax để nội dung lesson không đi theo html tĩnh và JavaScript Obfuscator Tool sẽ làm rối mã ajax để che dấu url thật
 
 - nếu không thể xử lý được video thủ công, có thể tách riêng bài viết và video thành 2 cột để video ở phía dưới bài viết, sẽ dễ xử lý hơn
 - nếu không thể xử lý video bằng script, thì xử lý ngay từ lúc trước khi lưu vào db
